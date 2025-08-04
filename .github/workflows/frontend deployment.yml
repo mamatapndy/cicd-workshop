@@ -46,8 +46,9 @@ jobs:
 
     - name: Deploy to S3
       run: |
+        echo "${{ secrets.S3_BUCKET_NAME }}"
         aws s3 sync ./build s3://${{ secrets.S3_BUCKET_NAME }} --delete
-        aws s3 cp ./build/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --cache-control "no-cache"
+      #  aws s3 cp ./build/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --cache-control "no-cache"
 
 
     - name: Invalidate CloudFront Cache
