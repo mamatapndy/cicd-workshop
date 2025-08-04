@@ -1,7 +1,7 @@
 name: Frontend Tests
 on:
-  push:
-    branches: team3-mamata
+  pull:
+    branches: main
 
 
 jobs:
