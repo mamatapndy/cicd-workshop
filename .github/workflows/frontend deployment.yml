@@ -57,34 +57,34 @@ jobs:
         DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} # Store your distribution ID as a secret
         PATHS: "/*" # Invalidate all paths, or specify specific paths like "/index.html /css/*"
 
-  # cypress_run:
-  #   name: Run e2e Test
-  #   runs-on: ubuntu-latest
-  #   needs: deploy
-  #   if: ${{ success() }}
+  cypress_run:
+    name: Run e2e Test
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: ${{ success() }}
 
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-  #     - name: Install dependencies
-  #       run: |
-  #             cd frontend
-  #             npm install
+      - name: Install dependencies
+        run: |
+              cd frontend
+              npm install
 
-  #     - name: Run Cypress tests
-  #       run: |
-  #             cd e2e-tests
-  #             npm install
-  #             npx cypress run
-  #       env:
-  #         CYPRESS_BASE_URL: ${{ vars.FRONTEND_URL }}
-  #         CYPRESS_apiUrl: ${{ vars.BACKEND_URL }}
+      - name: Run Cypress tests
+        run: |
+              cd e2e-tests
+              npm install
+              npx cypress run
+        env:
+          CYPRESS_BASE_URL: ${{ vars.FRONTEND_URL }}
+          CYPRESS_apiUrl: ${{ vars.BACKEND_URL }}
 
 
 
