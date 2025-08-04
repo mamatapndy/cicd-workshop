@@ -87,30 +87,3 @@ jobs:
           CYPRESS_apiUrl: ${{ vars.BACKEND_URL }}
 
 
-
-  # slack_notification:
-  #   name: Send Slack Notification
-  #   runs-on: ubuntu-latest
-  #   needs: deploy
-  #   if: always()
-
-  #   steps:
-  #     - name: Send Slack Notification via Webhook
-  #       if: ${{ needs.deploy.result == 'success' }}
-  #       run: |
-  #         curl -X POST -H 'Content-type: application/json' \
-  #         --data '{"text":"✅ *Frontend Deployment Successful* "}' \
-  #         $SLACK_WEBHOOK_URL
-  #       env:
-  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-  #     - name: Send Slack Notification via Webhook (Failure)
-  #       if: ${{ needs.deploy.result == 'failure' }}
-  #       run: |
-  #         curl -X POST -H 'Content-type: application/json' \
-  #         --data '{"text":"❌ *Frontend Deployment Failed* "}' \
-  #         $SLACK_WEBHOOK_URL
-  #       env:
-  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-
