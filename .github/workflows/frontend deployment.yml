@@ -1,10 +1,10 @@
 name: Frontend Deployment
 on:
   push:
-    paths:
-      - frontend/**
-      - e2e-tests/**
-      - .github/workflows/frontend-deployment.yml
+    # paths:
+    #   - frontend/**
+    #   - e2e-tests/**
+    #   - .github/workflows/frontend-deployment.yml
     branches:
       - team3-mamata
 
