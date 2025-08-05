@@ -1,4 +1,4 @@
-name: Frontend Deployments
+name: Frontend Deployment
 on:
   push:
     # paths:
